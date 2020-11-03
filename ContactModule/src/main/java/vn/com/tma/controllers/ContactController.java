@@ -21,9 +21,9 @@ public class ContactController {
     }
 
     @GetMapping(value = "/contacts")
-    public ResponseEntity<List<Contact>> getAllContacts(){
+    public List<Contact> getAllContacts(){
         List<Contact> contacts = contactService.findAll();
-        return ResponseEntity.ok(contacts);
+        return contacts;
 
     }
 
