@@ -1,0 +1,6 @@
+/.idea
+/SpringMultiModules.iml
+/ContactModule/target
+/ContactModule/ContactModule.iml
+/UserModule/target
+/UserModule/UserModule.iml
