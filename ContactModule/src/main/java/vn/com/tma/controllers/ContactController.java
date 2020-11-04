@@ -15,7 +15,7 @@ import java.util.List;
 public class ContactController {
     private ContactService contactService;
 
-    @Autowired
+//    @Autowired
     public ContactController(ContactService contactService) {
         this.contactService = contactService;
     }

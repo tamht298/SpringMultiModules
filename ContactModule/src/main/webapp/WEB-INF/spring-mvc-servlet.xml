@@ -17,9 +17,11 @@
         http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd">
 
     <!--    Config for auto scan components-->
-    <context:component-scan base-package="vn.com.tma"/>
+    <context:component-scan base-package="vn.com.tma.controllers"/>
 
     <mvc:annotation-driven/>
+    <context:annotation-config/>
+
     <bean
             class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix">
@@ -29,14 +31,24 @@
             <value>.jsp</value>
         </property>
     </bean>
-
-    <mongo:db-factory id="mongoDbFactory" dbname="test" />
+    <mongo:db-factory id="mongoDbFactory" dbname="test"/>
     <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
-        <constructor-arg ref="mongoDbFactory" />
+        <constructor-arg ref="mongoDbFactory"/>
     </bean>
 
-    <mongo:repositories base-package="vn.com.tma.repositories" />
+<!--config for setter based DI-->
+<!--    <bean id="contactServiceImpl" class="vn.com.tma.services.impl.ContactServiceImpl">-->
+<!--        <property name="mongoTemplate" ref="mongoTemplate"></property>-->
+<!--    </bean>-->
 
+<!--    config for constructor based DI-->
+    <bean id="contactServiceImpl" class="vn.com.tma.services.impl.ContactServiceImpl">
+        <constructor-arg name="mongoTemplate" ref="mongoTemplate"></constructor-arg>
+    </bean>
+    <bean id="contactController" class="vn.com.tma.controllers.ContactController">
+        <constructor-arg name="contactService" ref="contactServiceImpl"></constructor-arg>
+    </bean>
 
+    <mongo:repositories base-package="vn.com.tma.repositories"/>
 
 </beans>
