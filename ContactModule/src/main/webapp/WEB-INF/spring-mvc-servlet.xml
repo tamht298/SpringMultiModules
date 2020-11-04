@@ -45,10 +45,16 @@
     <bean id="contactServiceImpl" class="vn.com.tma.services.impl.ContactServiceImpl">
         <constructor-arg name="mongoTemplate" ref="mongoTemplate"></constructor-arg>
     </bean>
-    <bean id="contactController" class="vn.com.tma.controllers.ContactController">
-        <constructor-arg name="contactService" ref="contactServiceImpl"></constructor-arg>
+
+<!--    Using autowire-->
+    <bean id="contactController" class="vn.com.tma.controllers.ContactController" autowire="constructor">
     </bean>
 
+<!--Not using autowire-->
+<!--    <bean id="contactController" class="vn.com.tma.controllers.ContactController">-->
+<!--                <constructor-arg name="contactService" ref="contactServiceImpl"></constructor-arg>-->
+<!--    </bean>-->
+    
     <mongo:repositories base-package="vn.com.tma.repositories"/>
 
 </beans>
