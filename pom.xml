@@ -103,7 +103,7 @@
             </plugin>
         </plugins>
         <!-- Source directory configuration -->
-        <sourceDirectory>src/main/java</sourceDirectory>
+<!--        <sourceDirectory>src/main/java</sourceDirectory>-->
 
         <pluginManagement>
             <plugins>
@@ -122,14 +122,14 @@
                     <version>2.4</version>
                     <configuration>
                         <warSourceDirectory>src/main/webapp</warSourceDirectory>
-                        <warName>SpringMultiModules</warName>
+<!--                        <warName>SpringMultiModules</warName>-->
                         <failOnMissingWebXml>false</failOnMissingWebXml>
                     </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
 
-        <finalName>SpringMultiModules</finalName>
+<!--        <finalName>SpringMultiModules</finalName>-->
     </build>
 
     <dependencyManagement>
